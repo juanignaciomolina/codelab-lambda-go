@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Remember to set executable permissions to this file: chmod 700 build
+
+# This script will build your handler executable for Linux, which is what AWS Lambda needs
+GOOS=linux GOARCH=amd64 go build -o main main.go
+
+# Zip the executable for AWS Lambda deployment 
+zip main.zip main
